@@ -1,2 +1,1 @@
-print("Hola Mundo")
-b=4
+import pygame
