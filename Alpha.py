@@ -1,18 +1,27 @@
-import pygame
 import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5 import uic
 
-pygame.init()
+#Clase Constructor de ventanas
+class Menu(QMainWindow):
 
-size=(800,600)
-ventana=pygame.display.set_mode(size)
+    #Constructor de la clase
+    def __init__(self):
 
+        #Iniciar el objeto QMainWindow
+        QMainWindow.__init__(self)
 
-while True:
-    for event in pygame.event.get():
-        print(event)
-        if event.type == pygame.QUIT:
-            sys.exit()
+        #Cargar la configuracion .ui
+        uic.loadUi("menu.ui",self)
 
-    ventana.fill((0,0,0))
+#Inicializa la aplicacion
+app=QApplication(sys.argv)
 
-    pygame.display.flip()
+#Crea un objeto de la clase Menu
+menu=Menu()
+
+#Muestra la ventana
+menu.show()
+
+#Ejecuta la aplicacion
+app.exec()
