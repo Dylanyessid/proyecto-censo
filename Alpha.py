@@ -1,6 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import uic
+import ctypes
 
 #Clase Constructor de ventanas
 class Menu(QMainWindow):
@@ -10,9 +11,20 @@ class Menu(QMainWindow):
 
         #Iniciar el objeto QMainWindow
         QMainWindow.__init__(self)
+        self.setFixedSize(627, 500)
 
         #Cargar la configuracion .ui
         uic.loadUi("menu.ui",self)
+
+        #Estilos CSS
+        self.setStyleSheet("background-color: #5ae9f2")
+        self.BotonEst.setStyleSheet("background-color:white")
+        self.BotonDes.setStyleSheet("background-color:white")
+        self.BotonDen.setStyleSheet("background-color:white")
+        self.BotonCantEst.setStyleSheet("background-color:white")
+
+
+
 
 #Inicializa la aplicacion
 app=QApplication(sys.argv)
