@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PyQt5 import uic
 import ctypes
+from PyQt5.QtCore import Qt
 
 #Clase Constructor de ventanas
 class Menu(QMainWindow):
@@ -22,6 +23,16 @@ class Menu(QMainWindow):
         self.BotonDes.setStyleSheet("background-color:white")
         self.BotonDen.setStyleSheet("background-color:white")
         self.BotonCantEst.setStyleSheet("background-color:white")
+
+    def closeEvent(self, event):
+      resultado = QMessageBox.question(self, "Salir ...", "¿Seguro que quieres salir de la aplicación?", QMessageBox.Yes | QMessageBox.No)
+
+
+      if resultado == QMessageBox.Yes:
+          event.accept()
+      else:
+           event.ignore()
+
 
 
 
