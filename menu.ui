@@ -12,12 +12,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>627</width>
-    <height>500</height>
+    <width>626</width>
+    <height>553</height>
    </rect>
   </property>
   <property name="cursor">
    <cursorShape>ArrowCursor</cursorShape>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
   </property>
   <property name="windowTitle">
    <string>CENSO</string>
@@ -28,6 +31,9 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <property name="dockOptions">
    <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
   </property>
@@ -35,6 +41,9 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
    <widget class="QPushButton" name="BotonEst">
     <property name="enabled">
      <bool>true</bool>
@@ -144,16 +153,19 @@ de Desempleo</string>
      <enum>Qt::AutoText</enum>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>627</width>
-     <height>21</height>
-    </rect>
-   </property>
+   <widget class="QPushButton" name="boton_cerrar">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>0</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>X</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
