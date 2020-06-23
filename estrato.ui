@@ -44,7 +44,7 @@
     <string>Calcular el estrato</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="entradahab">
+  <widget class="QLineEdit" name="numh">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -86,7 +86,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;¿Cuántos electrodomésticos&lt;/p&gt;&lt;p&gt;hay en la vivienda?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="entradaelectro">
+  <widget class="QLineEdit" name="nume">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -117,6 +117,9 @@
      <width>251</width>
      <height>161</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:none;</string>
    </property>
    <property name="title">
     <string/>
@@ -214,6 +217,9 @@
      <height>101</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border:none;</string>
+   </property>
    <property name="title">
     <string/>
    </property>
@@ -270,6 +276,9 @@
      <width>331</width>
      <height>111</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:none;</string>
    </property>
    <property name="title">
     <string/>
@@ -346,6 +355,9 @@
      <height>121</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border:none;</string>
+   </property>
    <property name="title">
     <string/>
    </property>
@@ -402,6 +414,9 @@
      <width>331</width>
      <height>201</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:none;</string>
    </property>
    <property name="title">
     <string/>

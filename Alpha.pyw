@@ -83,16 +83,16 @@ class Ventana1(QDialog):
         self.cerrar.setStyleSheet("background-color:white")
         self.setStyleSheet("background-color: #5ae9f2")
 
-        self.entradahab.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        self.entradaelectro.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.numh.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.nume.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
 
         self.enviar.clicked.connect(self.EnviarDatosEst)
 
     def EnviarDatosEst(self):
-        hab = self.entradahab.text()
-        ele = self.entradaelectro.text()
-        print(hab)
-        print(ele)
+        NumHabitaciones = self.numh.text()
+        NumElectro = self.nume.text()
+        print(int(NumHabitaciones))
+        print(int(NumElectro))
 
 
 
