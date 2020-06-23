@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>615</width>
-    <height>543</height>
+    <height>632</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,29 +26,11 @@
     <string>X</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>-10</y>
-     <width>291</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>18</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Calcular el estrato</string>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="numh">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>399</y>
+     <x>40</x>
+     <y>420</y>
      <width>131</width>
      <height>21</height>
     </rect>
@@ -72,7 +54,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>430</y>
+     <y>450</y>
      <width>231</width>
      <height>71</height>
     </rect>
@@ -89,8 +71,8 @@
   <widget class="QLineEdit" name="nume">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>509</y>
+     <x>40</x>
+     <y>530</y>
      <width>131</width>
      <height>21</height>
     </rect>
@@ -100,7 +82,7 @@
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>500</y>
+     <y>530</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -113,7 +95,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>50</y>
+     <y>70</y>
      <width>251</width>
      <height>161</height>
     </rect>
@@ -142,7 +124,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;¿Qué condiciones tiene &lt;/p&gt;&lt;p&gt;la vivienda y el entorno?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton">
+   <widget class="QRadioButton" name="regulares">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -154,8 +136,11 @@
     <property name="text">
      <string>Regulares</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QRadioButton" name="aceptables">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -168,7 +153,7 @@
      <string>Aceptables</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_3">
+   <widget class="QRadioButton" name="buenas">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -181,7 +166,7 @@
      <string>Buenas</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_4">
+   <widget class="QRadioButton" name="muybuenas">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -194,11 +179,11 @@
      <string>Muy Buenas</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_5">
+   <widget class="QRadioButton" name="excelentes">
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>140</y>
+      <y>130</y>
       <width>82</width>
       <height>17</height>
      </rect>
@@ -211,8 +196,8 @@
   <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>210</y>
+     <x>10</x>
+     <y>240</y>
      <width>251</width>
      <height>101</height>
     </rect>
@@ -241,7 +226,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;¿Posee conexión&lt;/p&gt;&lt;p&gt; a Internet?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_6">
+   <widget class="QRadioButton" name="conexionsi">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -254,7 +239,7 @@
      <string>Si</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_7">
+   <widget class="QRadioButton" name="conexionno">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -266,14 +251,17 @@
     <property name="text">
      <string>No</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_3">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>50</y>
-     <width>331</width>
+     <x>250</x>
+     <y>70</y>
+     <width>261</width>
      <height>111</height>
     </rect>
    </property>
@@ -301,7 +289,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;¿Tiene acceso a&lt;/p&gt;&lt;p&gt;vías pavimentadas?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_8">
+   <widget class="QRadioButton" name="viassi">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -314,7 +302,7 @@
      <string>Si</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_9">
+   <widget class="QRadioButton" name="viasno">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -326,13 +314,16 @@
     <property name="text">
      <string>No</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>320</y>
+     <y>350</y>
      <width>191</width>
      <height>61</height>
     </rect>
@@ -349,8 +340,8 @@
   <widget class="QGroupBox" name="groupBox_4">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>160</y>
+     <x>290</x>
+     <y>170</y>
      <width>221</width>
      <height>121</height>
     </rect>
@@ -379,7 +370,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;¿La vivienda posee&lt;/p&gt;&lt;p&gt;un garage propio?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_10">
+   <widget class="QRadioButton" name="garagesi">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -392,7 +383,7 @@
      <string>Si</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_11">
+   <widget class="QRadioButton" name="garageno">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -404,13 +395,16 @@
     <property name="text">
      <string>No</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_5">
    <property name="geometry">
     <rect>
      <x>260</x>
-     <y>280</y>
+     <y>300</y>
      <width>331</width>
      <height>201</height>
     </rect>
@@ -439,7 +433,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;¿Cuál es el ingreso total&lt;/p&gt;&lt;p&gt;de los residentes de la vivienda?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_12">
+   <widget class="QRadioButton" name="ingreso1">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -451,8 +445,11 @@
     <property name="text">
      <string>Menos de 1 Salario Mínimo Mensual Legal Vigente</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_13">
+   <widget class="QRadioButton" name="ingreso2">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -465,7 +462,7 @@
      <string>Entre 1 y 2 Salarios Mínimos Mensual Legal Vigente</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_14">
+   <widget class="QRadioButton" name="ingreso3">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -478,7 +475,7 @@
      <string>Entre 2 y 3 Salarios Mínimos Mensual Legal Vigente</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_15">
+   <widget class="QRadioButton" name="ingreso4">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -491,6 +488,19 @@
      <string>4 o más Salarios Mínimos Mensual Legal Vigente</string>
     </property>
    </widget>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>590</y>
+     <width>291</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
  </widget>
  <resources/>
