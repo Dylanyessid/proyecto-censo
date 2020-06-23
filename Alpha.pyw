@@ -79,6 +79,8 @@ class Ventana1(QDialog):
         self.cerrar.setStyleSheet("background-color:white")
         self.setStyleSheet("background-color: #5ae9f2")
 
+        self.EntradaHab.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.EntradaElectro.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
 
 class Ventana2(QDialog):
     def __init__(self):
