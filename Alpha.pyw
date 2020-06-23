@@ -70,17 +70,34 @@ class Menu(QMainWindow):
 class Ventana1(QDialog):
     def __init__(self):
         QDialog.__init__(self)
-        uic.loadUi("estrato.ui",self)
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
+
+        uic.loadUi("estrato.ui",self)
+
+
+
 
         #Botones
         self.cerrar.clicked.connect(self.close)
         self.cerrar.setStyleSheet("background-color:white")
         self.setStyleSheet("background-color: #5ae9f2")
 
-        self.EntradaHab.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        self.EntradaElectro.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.entradahab.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.entradaelectro.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+
+        self.enviar.clicked.connect(self.EnviarDatosEst)
+
+    def EnviarDatosEst(self):
+        hab = self.entradahab.text()
+        ele = self.entradaelectro.text()
+        print(hab)
+        print(ele)
+
+
+
+
+
 
 class Ventana2(QDialog):
     def __init__(self):
