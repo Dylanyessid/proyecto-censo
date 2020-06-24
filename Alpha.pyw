@@ -77,6 +77,7 @@ class Ventana1(QDialog):
 
         self.numh.setAlignment(Qt.AlignCenter)
         self.nume.setAlignment(Qt.AlignCenter)
+        self.error.setAlignment(Qt.AlignCenter)
 
 
         #Botones
@@ -146,7 +147,6 @@ class Ventana1(QDialog):
 
             if float(NumElectro)>0 and float(NumHabitaciones)>0:
                 CondicionesVivienda=int(Condiciones) + int(OpcionInternet) + int(NumHabitaciones) + int(NumElectro) + int(OpcionVia) + int(OpcionGarage) + int(Ingreso)
-                print(CondicionesVivienda)
                 self.close()
 
                 if CondicionesVivienda>0 and CondicionesVivienda<=27:
@@ -180,9 +180,12 @@ class Ventana1(QDialog):
                     VEst6=Est6()
                     VEst6.exec()
 
+            else:
 
-        except:
-            pass
+                self.error.setText("No es posible ingresar números negativos")
+
+        except ValueError:
+            self.error.setText("Ha ingresado un dato inválido, inténtalo de nuevo")
 
 
 
