@@ -43,6 +43,9 @@
    <property name="cursor">
     <cursorShape>ArrowCursor</cursorShape>
    </property>
+   <property name="maxLength">
+    <number>2</number>
+   </property>
    <property name="readOnly">
     <bool>false</bool>
    </property>
@@ -76,6 +79,9 @@
      <width>131</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="maxLength">
+    <number>3</number>
    </property>
   </widget>
   <widget class="QPushButton" name="enviar">

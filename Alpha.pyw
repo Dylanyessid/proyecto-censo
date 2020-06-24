@@ -75,7 +75,8 @@ class Ventana1(QDialog):
 
         uic.loadUi("estrato.ui",self)
 
-
+        self.numh.setAlignment(Qt.AlignCenter)
+        self.nume.setAlignment(Qt.AlignCenter)
 
 
         #Botones
@@ -89,11 +90,17 @@ class Ventana1(QDialog):
         self.enviar.clicked.connect(self.EnviarDatosEst)
         self.enviar.setStyleSheet("background-color:white")
 
+
+
     def EnviarDatosEst(self):
+
+
+
         NumHabitaciones = self.numh.text()
         NumElectro = self.nume.text()
         #print(int(NumHabitaciones))
         #print(int(NumElectro))
+
 
         try:
             if self.regulares.isChecked():
@@ -139,44 +146,133 @@ class Ventana1(QDialog):
 
             if float(NumElectro)>0 and float(NumHabitaciones)>0:
                 CondicionesVivienda=int(Condiciones) + int(OpcionInternet) + int(NumHabitaciones) + int(NumElectro) + int(OpcionVia) + int(OpcionGarage) + int(Ingreso)
-
-                if CondicionesVivienda>0 and CondicionesVivienda<=24:
-
-                    pass
-
-                elif CondicionesVivienda>24 and CondicionesVivienda<=38:
-
-                    #LLamado de función con estrato 2
-                    pass
-
-                elif CondicionesVivienda>38 and CondicionesVivienda<=53:
-
-                    #LLamado de función con estrato 3
-                    pass
-
-                elif CondicionesVivienda>53 and CondicionesVivienda<=67:
-
-                    #LLamado de función con estrato 4
-                    pass
-
-                elif CondicionesVivienda>67 and CondicionesVivienda<=80:
-
-                    #LLamado de función con estrato 5
-                    pass
-
-                elif CondicionesVivienda>80:
-
-                    #LLamado de función con estrato 6
-                    pass
-
+                print(CondicionesVivienda)
                 self.close()
+
+                if CondicionesVivienda>0 and CondicionesVivienda<=27:
+
+                    VEst=Est1()
+                    VEst.exec()
+
+
+                elif CondicionesVivienda>27 and CondicionesVivienda<=45:
+
+                    VEst2=Est2()
+                    VEst2.exec()
+
+                elif CondicionesVivienda>45 and CondicionesVivienda<=58:
+
+                    VEst3=Est3()
+                    VEst3.exec()
+
+                elif CondicionesVivienda>58 and CondicionesVivienda<=69:
+
+                    VEst4=Est4()
+                    VEst4.exec()
+
+                elif CondicionesVivienda>69 and CondicionesVivienda<=83:
+
+                    VEst5=Est5()
+                    VEst5.exec()
+
+                elif CondicionesVivienda>83:
+
+                    VEst6=Est6()
+                    VEst6.exec()
+
+
         except:
             pass
 
 
 
 
+class Est1(QDialog):
+    def __init__(self):
+        QDialog.__init__(self)
+        uic.loadUi("est.ui",self)
+        self.setWindowFlag(Qt.WindowCloseButtonHint, False)
+        self.setWindowFlag(Qt.FramelessWindowHint)
 
+        #Botones
+        self.cerrar.clicked.connect(self.close)
+        self.cerrar.setStyleSheet("background-color:white")
+        self.setStyleSheet("background-color: #5ae9f2")
+
+class Est2(QDialog):
+    def __init__(self):
+        QDialog.__init__(self)
+        uic.loadUi("est.ui",self)
+        self.setWindowFlag(Qt.WindowCloseButtonHint, False)
+        self.setWindowFlag(Qt.FramelessWindowHint)
+
+        #Botones
+        self.cerrar.clicked.connect(self.close)
+        self.cerrar.setStyleSheet("background-color:white")
+        self.setStyleSheet("background-color: #5ae9f2")
+
+        self.titulo.setText("Estrato 2")
+        self.descripcion.setText("Este es el estrato: Bajo. Las condiciones de la casa al igual que en el entorno son un poco mejores. \nEste estrato tambien pueden recibir subsidios.")
+
+class Est3(QDialog):
+    def __init__(self):
+        QDialog.__init__(self)
+        uic.loadUi("est.ui",self)
+        self.setWindowFlag(Qt.WindowCloseButtonHint, False)
+        self.setWindowFlag(Qt.FramelessWindowHint)
+
+        #Botones
+        self.cerrar.clicked.connect(self.close)
+        self.cerrar.setStyleSheet("background-color:white")
+        self.setStyleSheet("background-color: #5ae9f2")
+
+        self.titulo.setText("Estrato 3")
+        self.descripcion.setText("Este estrato corresponde a: Medio-bajo. Las condiciones en las que se vive son \nconsiderables. Este estrato es el más alto en el que se pueden recibir subsidios")
+
+
+class Est4(QDialog):
+    def __init__(self):
+        QDialog.__init__(self)
+        uic.loadUi("est.ui",self)
+        self.setWindowFlag(Qt.WindowCloseButtonHint, False)
+        self.setWindowFlag(Qt.FramelessWindowHint)
+
+        #Botones
+        self.cerrar.clicked.connect(self.close)
+        self.cerrar.setStyleSheet("background-color:white")
+        self.setStyleSheet("background-color: #5ae9f2")
+
+        self.titulo.setText("Estrato 4")
+        self.descripcion.setText("Este estrato corresponde a: Medio.\nUna característica de este estrato es que no puede recibir subsidios(como los más bajos)\nni tienen que pagar sobrecostos (como los más altos).")
+
+class Est5(QDialog):
+    def __init__(self):
+        QDialog.__init__(self)
+        uic.loadUi("est.ui",self)
+        self.setWindowFlag(Qt.WindowCloseButtonHint, False)
+        self.setWindowFlag(Qt.FramelessWindowHint)
+
+        #Botones
+        self.cerrar.clicked.connect(self.close)
+        self.cerrar.setStyleSheet("background-color:white")
+        self.setStyleSheet("background-color: #5ae9f2")
+
+        self.titulo.setText("Estrato 5")
+        self.descripcion.setText("Este estrato corresponde a: Medio-alto.\nA partir de este estrato se debe de pagar sobrecostos en los servicios\npúblicos como contribución ya que suelen tener mayores recursos económicos.")
+class Est6(QDialog):
+    def __init__(self):
+        QDialog.__init__(self)
+        uic.loadUi("est.ui",self)
+        self.setWindowFlag(Qt.WindowCloseButtonHint, False)
+        self.setWindowFlag(Qt.FramelessWindowHint)
+
+        #Botones
+        self.cerrar.clicked.connect(self.close)
+        self.cerrar.setStyleSheet("background-color:white")
+        self.setStyleSheet("background-color: #5ae9f2")
+
+        self.titulo.setText("Estrato 6")
+        self.descripcion.setText("Este estrato corresponde a: Alto. \nEs el estrato socioeconómico más alto. Poseen excelentes condiciones\ntanto de vivienda como de entorno y también paga sobrecostos en los\nservicios públicos.")
 
 class Ventana2(QDialog):
     def __init__(self):

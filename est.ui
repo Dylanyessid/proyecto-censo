@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="titulo">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -23,20 +23,33 @@
     </rect>
    </property>
    <property name="text">
-    <string>Estrato 2</string>
+    <string>Estrato 1</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="descripcion">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>50</y>
+     <x>60</x>
+     <y>80</y>
      <width>371</width>
      <height>141</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Este es el estrato: Bajo. Las condiciones de la casa al igual que en el entorno son un poco mejores. &lt;/p&gt;&lt;p&gt;Este estrato tambien pueden recibir subsidios.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Este es el estrato más bajo: Bajo-bajo. Las condiciones de la casa al igual que &lt;/p&gt;&lt;p&gt;el entorno que le rodea poseen pocos lujos. Los habitantes que poseen este &lt;/p&gt;&lt;p&gt;estrato pueden recibir subsidios&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cerrar">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>0</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>X</string>
    </property>
   </widget>
  </widget>
