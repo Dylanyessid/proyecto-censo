@@ -367,9 +367,22 @@ class Ventana3(QDialog):
 
                 self.resultado.setText("La Densidad de población de \n " +str(NombreTerritorio.upper()) +  " es de "+ str(round(DensidadPoblacion,2)) + "\n personas por kilómetro cuadrado.")
 
-        except:
+            elif int(PoblacionTotal)<0 or float(Superficie)<0:
 
-            pass
+                self.resultado.setText("No puedes llenar los datos con números negativos.")
+
+            elif int(PoblacionTotal)==0:
+
+                self.resultado.setText("No puedes llenar los espacios con 0. Reinténtalo" )
+
+
+        except ValueError:
+
+            self.resultado.setText("Has ingresado incorrectamente los datos. Reinténtalo")
+
+        except ZeroDivisionError:
+
+            self.resultado.setText("No puedes introducir 0 en los espacios" )
 
 class Ventana4(QDialog):
     def __init__(self):

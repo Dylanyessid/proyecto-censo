@@ -70,9 +70,9 @@ numéricos:</string>
   <widget class="QLabel" name="resultado">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>400</y>
-     <width>231</width>
+     <x>120</x>
+     <y>410</y>
+     <width>291</width>
      <height>51</height>
     </rect>
    </property>
