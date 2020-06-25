@@ -387,7 +387,7 @@ class Ventana3(QDialog):
 class Ventana4(QDialog):
     def __init__(self):
         QDialog.__init__(self)
-        uic.loadUi("densidad.ui",self)
+        uic.loadUi("cant_estrato.ui",self)
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
@@ -396,6 +396,54 @@ class Ventana4(QDialog):
         self.cerrar.setStyleSheet("background-color:white")
         self.setStyleSheet("background-color: #5ae9f2")
 
+        self.Region.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        #self.CuadroPob.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        #self.CuadroSup.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.error.setAlignment(Qt.AlignCenter)
+
+        self.enviar.clicked.connect(self.CalcularPorcentaje)
+
+
+    def CalcularPorcentaje(self):
+
+        Estrato=[]
+        Porcentaje=[]
+
+
+        Estrato.append(self.est1.text())
+        Estrato.append(self.est2.text())
+        Estrato.append(self.est3.text())
+        Estrato.append(self.est4.text())
+        Estrato.append(self.est5.text())
+        Estrato.append(self.est6.text())
+
+        if int(Estrato[0])<0 or int(Estrato[1])<0 or int(Estrato[2])<0 or int(Estrato[3])<0 or int(Estrato[4])<0 or int(Estrato[5])<0:
+                self.error.setText("Ha ingresado un o más números negativos. Reinténtalo")
+
+        if int(Estrato[0])>=0 and int(Estrato[1])>=0 and int(Estrato[2])>=0 and int(Estrato[3])>=0 and int(Estrato[4])>=0 and int(Estrato[5])>=0:
+            TotalEst=int(Estrato[0])+int(Estrato[1])+int(Estrato[2])+int(Estrato[3])+int(Estrato[4])+int(Estrato[5])
+
+
+
+
+
+
+            ResultadoPorc = Porcentajes()
+            ResultadoPorc.exec()
+
+
+        #self.enviar.clicked.connect(self.EnviarDatosDen)
+class Porcentajes(QDialog):
+    def __init__(self):
+        QDialog.__init__(self)
+        uic.loadUi("porcentajes.ui",self)
+        self.setWindowFlag(Qt.WindowCloseButtonHint, False)
+        self.setWindowFlag(Qt.FramelessWindowHint)
+
+        #Botones
+        self.cerrar.clicked.connect(self.close)
+        self.cerrar.setStyleSheet("background-color:white")
+        self.setStyleSheet("background-color: #5ae9f2")
 
 #Inicializa la aplicacion
 app=QApplication(sys.argv)

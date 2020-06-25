@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>509</width>
-    <height>485</height>
+    <height>461</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,7 +36,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Ingrese el nombre del territorio</string>
+    <string>Ingrese el nombre del territorio:</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -123,7 +123,7 @@ en estrato 1 del territorio:</string>
 en estrato 1 del territorio:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="est1">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -133,7 +133,7 @@ en estrato 1 del territorio:</string>
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="est2">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -143,7 +143,7 @@ en estrato 1 del territorio:</string>
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="est3">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -153,7 +153,7 @@ en estrato 1 del territorio:</string>
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="est4">
    <property name="geometry">
     <rect>
      <x>320</x>
@@ -163,7 +163,7 @@ en estrato 1 del territorio:</string>
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
+  <widget class="QLineEdit" name="est5">
    <property name="geometry">
     <rect>
      <x>320</x>
@@ -173,7 +173,7 @@ en estrato 1 del territorio:</string>
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_6">
+  <widget class="QLineEdit" name="est6">
    <property name="geometry">
     <rect>
      <x>320</x>
@@ -183,7 +183,7 @@ en estrato 1 del territorio:</string>
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="enviar">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -199,14 +199,24 @@ en estrato 1 del territorio:</string>
   <widget class="QLabel" name="error">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>430</y>
+     <x>90</x>
+     <y>400</y>
      <width>281</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Region">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>70</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
    </property>
   </widget>
  </widget>
