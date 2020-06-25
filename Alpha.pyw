@@ -105,19 +105,19 @@ class Ventana1(QDialog):
 
         try:
             if self.regulares.isChecked():
-                Condiciones=1
+                Condiciones=2
             elif self.aceptables.isChecked():
-                Condiciones=3
+                Condiciones=4
             elif self.buenas.isChecked():
-                Condiciones=7
+                Condiciones=8
             elif self.muybuenas.isChecked():
-                Condiciones=11
+                Condiciones=12
             elif self.excelentes.isChecked():
                 Condiciones=14
 
 
             if self.conexionsi.isChecked():
-                OpcionInternet=2
+                OpcionInternet=4
             elif self.conexionno.isChecked():
                 OpcionInternet=0
 
@@ -149,33 +149,33 @@ class Ventana1(QDialog):
                 CondicionesVivienda=int(Condiciones) + int(OpcionInternet) + int(NumHabitaciones) + int(NumElectro) + int(OpcionVia) + int(OpcionGarage) + int(Ingreso)
                 self.close()
 
-                if CondicionesVivienda>0 and CondicionesVivienda<=27:
+                if CondicionesVivienda>0 and CondicionesVivienda<=23:
 
                     VEst=Est1()
                     VEst.exec()
 
 
-                elif CondicionesVivienda>27 and CondicionesVivienda<=45:
+                elif CondicionesVivienda>23 and CondicionesVivienda<=35:
 
                     VEst2=Est2()
                     VEst2.exec()
 
-                elif CondicionesVivienda>45 and CondicionesVivienda<=58:
+                elif CondicionesVivienda>35 and CondicionesVivienda<=48:
 
                     VEst3=Est3()
                     VEst3.exec()
 
-                elif CondicionesVivienda>58 and CondicionesVivienda<=69:
+                elif CondicionesVivienda>48 and CondicionesVivienda<=59:
 
                     VEst4=Est4()
                     VEst4.exec()
 
-                elif CondicionesVivienda>69 and CondicionesVivienda<=83:
+                elif CondicionesVivienda>59 and CondicionesVivienda<=70:
 
                     VEst5=Est5()
                     VEst5.exec()
 
-                elif CondicionesVivienda>83:
+                elif CondicionesVivienda>70:
 
                     VEst6=Est6()
                     VEst6.exec()
@@ -216,6 +216,10 @@ class Est2(QDialog):
 
         self.titulo.setText("Estrato 2")
         self.descripcion.setText("Este es el estrato: Bajo. Las condiciones de la casa al igual que en el entorno son un poco mejores. \nEste estrato tambien pueden recibir subsidios.")
+
+
+
+
 
 class Est3(QDialog):
     def __init__(self):
@@ -288,6 +292,45 @@ class Ventana2(QDialog):
         self.cerrar.clicked.connect(self.close)
         self.cerrar.setStyleSheet("background-color:white")
         self.setStyleSheet("background-color: #5ae9f2")
+
+        self.enviar.clicked.connect(self.EnviarDatosDes)
+
+        self.Region.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.CuadroDesempleados.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.CuadroPoblacionAct.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.resultado.setAlignment(Qt.AlignCenter)
+
+    def EnviarDatosDes(self):
+        NombreTerritorio = self.Region.text()
+        NumDesempleados = self.CuadroDesempleados.text()
+        PoblacionAct = self.CuadroPoblacionAct.text()
+
+
+        try:
+
+            TasaDesempleo=(int(NumDesempleados)/int(PoblacionAct)) * 100
+            #print(round(TasaDesempleo,2))
+            if int(NumDesempleados)<=int(PoblacionAct) and int(NumDesempleados)>0 and int(PoblacionAct)>0:
+
+                self.resultado.setText(str(round(TasaDesempleo,2)))
+            elif (int(NumDesempleados)>int(PoblacionAct)):
+
+                self.resultado.setText("El Numero de desempleados no puede ser mayor que la población")
+
+            else:
+
+                self.resultado.setText("No es posible ingresar números negativos")
+
+
+
+
+        except ValueError:
+
+            self.resultado.setText("Ha ingresado un dato inválido, inténtalo de nuevo")
+
+        except ZeroDivisionError:
+
+            self.resultado.setText("No puedes introducir un número 0 en la Población Activa")
 
 class Ventana3(QDialog):
     def __init__(self):

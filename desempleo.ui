@@ -39,7 +39,7 @@
     <string>Ingrese el nombre del territorio:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="Region">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -63,7 +63,7 @@
 en la región:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="CuadroDesempleados">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -88,7 +88,7 @@ en la región:</string>
 algún trabajo):</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="CuadroPoblacionAct">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -98,7 +98,7 @@ algún trabajo):</string>
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="enviar">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -111,12 +111,12 @@ algún trabajo):</string>
     <string>Enviar</string>
    </property>
   </widget>
-  <widget class="QLabel" name="error">
+  <widget class="QLabel" name="resultado">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>90</x>
      <y>410</y>
-     <width>251</width>
+     <width>341</width>
      <height>61</height>
     </rect>
    </property>
