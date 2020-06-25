@@ -312,7 +312,8 @@ class Ventana2(QDialog):
             #print(round(TasaDesempleo,2))
             if int(NumDesempleados)<=int(PoblacionAct) and int(NumDesempleados)>0 and int(PoblacionAct)>0:
 
-                self.resultado.setText(str(round(TasaDesempleo,2)))
+                self.resultado.setText("La tasa de desempleo en " + NombreTerritorio.upper() + " es de: \n % " + str(round(TasaDesempleo,2)))
+
             elif (int(NumDesempleados)>int(PoblacionAct)):
 
                 self.resultado.setText("El Numero de desempleados no puede ser mayor que la población")
