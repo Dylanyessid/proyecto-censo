@@ -345,6 +345,32 @@ class Ventana3(QDialog):
         self.cerrar.setStyleSheet("background-color:white")
         self.setStyleSheet("background-color: #5ae9f2")
 
+        self.Region.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.CuadroPob.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.CuadroSup.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.resultado.setAlignment(Qt.AlignCenter)
+
+
+        self.enviar.clicked.connect(self.EnviarDatosDen)
+
+    def EnviarDatosDen(self):
+
+        NombreTerritorio = self.Region.text()
+        PoblacionTotal= self.CuadroPob.text()
+        Superficie= self.CuadroSup.text()
+
+        try:
+
+            DensidadPoblacion=int(PoblacionTotal) / float(Superficie)
+
+            if int(PoblacionTotal)>0 and float(Superficie)>0:
+
+                self.resultado.setText("La Densidad de población de \n " +str(NombreTerritorio.upper()) +  " es de "+ str(round(DensidadPoblacion,2)) + "\n personas por kilómetro cuadrado.")
+
+        except:
+
+            pass
+
 class Ventana4(QDialog):
     def __init__(self):
         QDialog.__init__(self)
