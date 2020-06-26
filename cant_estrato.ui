@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>509</width>
-    <height>461</height>
+    <height>442</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,7 +29,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>170</x>
      <y>30</y>
      <width>171</width>
      <height>31</height>
@@ -64,7 +64,7 @@ en estrato 1 del territorio:</string>
    </property>
    <property name="text">
     <string>Ingrese la cantidad de viviendas 
-en estrato 1 del territorio:</string>
+en estrato 2 del territorio:</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
@@ -78,7 +78,7 @@ en estrato 1 del territorio:</string>
    </property>
    <property name="text">
     <string>Ingrese la cantidad de viviendas 
-en estrato 1 del territorio:</string>
+en estrato 3 del territorio:</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
@@ -92,7 +92,7 @@ en estrato 1 del territorio:</string>
    </property>
    <property name="text">
     <string>Ingrese la cantidad de viviendas 
-en estrato 1 del territorio:</string>
+en estrato 4 del territorio:</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
@@ -106,7 +106,7 @@ en estrato 1 del territorio:</string>
    </property>
    <property name="text">
     <string>Ingrese la cantidad de viviendas 
-en estrato 1 del territorio:</string>
+en estrato 5 del territorio:</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">
@@ -120,7 +120,7 @@ en estrato 1 del territorio:</string>
    </property>
    <property name="text">
     <string>Ingrese la cantidad de viviendas 
-en estrato 1 del territorio:</string>
+en estrato 6 del territorio:</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="est1">
@@ -147,7 +147,7 @@ en estrato 1 del territorio:</string>
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>290</y>
+     <y>300</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -157,7 +157,7 @@ en estrato 1 del territorio:</string>
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>290</y>
+     <y>140</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -177,7 +177,7 @@ en estrato 1 del territorio:</string>
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>140</y>
+     <y>300</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -199,7 +199,7 @@ en estrato 1 del territorio:</string>
   <widget class="QLabel" name="error">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>100</x>
      <y>400</y>
      <width>281</width>
      <height>41</height>

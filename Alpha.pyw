@@ -406,33 +406,59 @@ class Ventana4(QDialog):
 
     def CalcularPorcentaje(self):
 
-        Estrato=[]
-        Porcentaje=[]
+        try:
+            global NombreTerritorio
+            global Estrato
+            global Porcentaje
+            global TotalEst
+
+            NombreTerritorio = self.Region.text()
+            Estrato=[]
+            Porcentaje=[]
 
 
-        Estrato.append(self.est1.text())
-        Estrato.append(self.est2.text())
-        Estrato.append(self.est3.text())
-        Estrato.append(self.est4.text())
-        Estrato.append(self.est5.text())
-        Estrato.append(self.est6.text())
+            Estrato.append(self.est1.text())
+            Estrato.append(self.est2.text())
+            Estrato.append(self.est3.text())
+            Estrato.append(self.est4.text())
+            Estrato.append(self.est5.text())
+            Estrato.append(self.est6.text())
 
-        if int(Estrato[0])<0 or int(Estrato[1])<0 or int(Estrato[2])<0 or int(Estrato[3])<0 or int(Estrato[4])<0 or int(Estrato[5])<0:
-                self.error.setText("Ha ingresado un o más números negativos. Reinténtalo")
-
-        if int(Estrato[0])>=0 and int(Estrato[1])>=0 and int(Estrato[2])>=0 and int(Estrato[3])>=0 and int(Estrato[4])>=0 and int(Estrato[5])>=0:
-            TotalEst=int(Estrato[0])+int(Estrato[1])+int(Estrato[2])+int(Estrato[3])+int(Estrato[4])+int(Estrato[5])
+            if int(Estrato[0])<0 or int(Estrato[1])<0 or int(Estrato[2])<0 or int(Estrato[3])<0 or int(Estrato[4])<0 or int(Estrato[5])<0:
 
 
+                    self.error.setText("Ha ingresado un o más números negativos. Reinténtalo")
+
+            if NombreTerritorio=="":
+
+                self.error.setText("No puedes dejar vacío el nombre de la región")
+
+            else:
+
+                if int(Estrato[0])>=0 and int(Estrato[1])>=0 and int(Estrato[2])>=0 and int(Estrato[3])>=0 and int(Estrato[4])>=0 and int(Estrato[5])>=0:
+                    TotalEst=int(Estrato[0])+int(Estrato[1])+int(Estrato[2])+int(Estrato[3])+int(Estrato[4])+int(Estrato[5])
+
+                    for i in [0,1,2,3,4,5]:
+                        Porcentaje.append((100 * float(Estrato[i]))/float(TotalEst))
+
+                    self.close()
+                    ResultadoPorc = Porcentajes()
+                    ResultadoPorc.exec()
 
 
 
 
-            ResultadoPorc = Porcentajes()
-            ResultadoPorc.exec()
 
 
-        #self.enviar.clicked.connect(self.EnviarDatosDen)
+        except ValueError:
+
+            self.error.setText("Has ingresado incorrectamente los datos. Reinténtalo")
+
+        except ZeroDivisionError:
+
+            self.error.setText("No puedes introducir 0 en los espacios" )
+
+
 class Porcentajes(QDialog):
     def __init__(self):
         QDialog.__init__(self)
@@ -444,6 +470,23 @@ class Porcentajes(QDialog):
         self.cerrar.clicked.connect(self.close)
         self.cerrar.setStyleSheet("background-color:white")
         self.setStyleSheet("background-color: #5ae9f2")
+
+        self.porc1.setAlignment(Qt.AlignCenter)
+        self.porc2.setAlignment(Qt.AlignCenter)
+        self.porc3.setAlignment(Qt.AlignCenter)
+        self.porc4.setAlignment(Qt.AlignCenter)
+        self.porc5.setAlignment(Qt.AlignCenter)
+        self.porc6.setAlignment(Qt.AlignCenter)
+
+        self.porc1.setText("El Porcentaje del Estrato 1 en " + str(NombreTerritorio.upper()) + "\n es de %" + str(round(Porcentaje[0],2)))
+        self.porc2.setText("El Porcentaje del Estrato 2 en " + str(NombreTerritorio.upper()) + "\n es de %" + str(round(Porcentaje[1],2)))
+        self.porc3.setText("El Porcentaje del Estrato 3 en " + str(NombreTerritorio.upper()) + "\n es de %" + str(round(Porcentaje[2],2)))
+        self.porc4.setText("El Porcentaje del Estrato 4 en " + str(NombreTerritorio.upper()) + "\n es de %" + str(round(Porcentaje[3],2)))
+        self.porc5.setText("El Porcentaje del Estrato 5 en " + str(NombreTerritorio.upper()) + "\n es de %" + str(round(Porcentaje[4],2)))
+        self.porc6.setText("El Porcentaje del Estrato 6 en " + str(NombreTerritorio.upper()) + "\n es de %" + str(round(Porcentaje[5],2)))
+
+        self.total.setText("El total de viviendas en " + str(NombreTerritorio.upper()) + " es de: " + str(TotalEst) )
+
 
 #Inicializa la aplicacion
 app=QApplication(sys.argv)
