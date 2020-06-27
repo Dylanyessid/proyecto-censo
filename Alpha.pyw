@@ -28,18 +28,22 @@ class Menu(QMainWindow):
         def CerrarPrincipal(self):
             QCoreApplication.instance().quit()
 
+        #Conecta el boton con la ventana para calcular el estrato
         def ConectarEst(self):
             VentanaEst=Ventana1()
             VentanaEst.exec()
 
+        #Conecta el boton con la ventana para calcular la tasa de desempleo
         def ConectarDes(self):
             VentanaDes=Ventana2()
             VentanaDes.exec()
 
+        #Conecta el boton con la ventana para calcular la densidad de población
         def ConectarDen(self):
             VentanaDen=Ventana3()
             VentanaDen.exec()
 
+        #Conecta el boton con la ventana para calcular los porcentajes de cada estrato
         def ConectarCantEst(self):
             VentanaCantEst=Ventana4()
             VentanaCantEst.exec()
@@ -50,11 +54,11 @@ class Menu(QMainWindow):
 
 
 
-        self.cerrar_principal.setStyleSheet("background-color:white")
+        #Botones y su configuración
+        self.cerrar_principal.setStyleSheet("background-color:#5ae9f2;")
         self.cerrar_principal.clicked.connect(CerrarPrincipal)
 
-        #Botones
-        self.BotonEst.setStyleSheet("background-color:white")
+        self.BotonEst.setStyleSheet("background-color:white;")
         self.BotonEst.clicked.connect(ConectarEst)
 
         self.BotonDes.setStyleSheet("background-color:white")
@@ -144,6 +148,7 @@ class Ventana1(QDialog):
                 Ingreso=7
             elif self.ingreso4.isChecked():
                 Ingreso=9
+
 
             if float(NumElectro)>0 and float(NumHabitaciones)>0:
                 CondicionesVivienda=int(Condiciones) + int(OpcionInternet) + int(NumHabitaciones) + int(NumElectro) + int(OpcionVia) + int(OpcionGarage) + int(Ingreso)
@@ -310,7 +315,12 @@ class Ventana2(QDialog):
 
             TasaDesempleo=(int(NumDesempleados)/int(PoblacionAct)) * 100
             #print(round(TasaDesempleo,2))
-            if int(NumDesempleados)<=int(PoblacionAct) and int(NumDesempleados)>0 and int(PoblacionAct)>0:
+
+            if NombreTerritorio=="":
+
+                self.resultado.setText("No puedes dejar vacío el nombre de la región")
+
+            elif int(NumDesempleados)<=int(PoblacionAct) and int(NumDesempleados)>0 and int(PoblacionAct)>0:
 
                 self.resultado.setText("La tasa de desempleo en " + NombreTerritorio.upper() + " es de: \n % " + str(round(TasaDesempleo,2)))
 
@@ -363,7 +373,11 @@ class Ventana3(QDialog):
 
             DensidadPoblacion=int(PoblacionTotal) / float(Superficie)
 
-            if int(PoblacionTotal)>0 and float(Superficie)>0:
+            if NombreTerritorio=="":
+
+                self.resultado.setText("No puedes dejar vacío el nombre de la región")
+
+            elif int(PoblacionTotal)>0 and float(Superficie)>0:
 
                 self.resultado.setText("La Densidad de población de \n " +str(NombreTerritorio.upper()) +  " es de "+ str(round(DensidadPoblacion,2)) + "\n personas por kilómetro cuadrado.")
 
@@ -397,8 +411,13 @@ class Ventana4(QDialog):
         self.setStyleSheet("background-color: #5ae9f2")
 
         self.Region.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        #self.CuadroPob.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        #self.CuadroSup.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.est1.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.est2.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.est3.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.est4.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.est5.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.est6.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+
         self.error.setAlignment(Qt.AlignCenter)
 
         self.enviar.clicked.connect(self.CalcularPorcentaje)
