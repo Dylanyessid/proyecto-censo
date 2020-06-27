@@ -16,7 +16,7 @@ class Menu(QMainWindow):
 
         #Iniciar el objeto QMainWindow
         QMainWindow.__init__(self)
-        self.setFixedSize(627, 500)
+        self.setFixedSize(607, 487)
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
@@ -49,25 +49,23 @@ class Menu(QMainWindow):
             VentanaCantEst.exec()
 
         #Estilos CSS
-        self.setStyleSheet("background-color: #5ae9f2")
 
 
 
 
         #Botones y su configuración
-        self.cerrar_principal.setStyleSheet("background-color:#5ae9f2;")
         self.cerrar_principal.clicked.connect(CerrarPrincipal)
 
-        self.BotonEst.setStyleSheet("background-color:white;")
+
         self.BotonEst.clicked.connect(ConectarEst)
 
-        self.BotonDes.setStyleSheet("background-color:white")
+
         self.BotonDes.clicked.connect(ConectarDes)
 
-        self.BotonDen.setStyleSheet("background-color:white")
+
         self.BotonDen.clicked.connect(ConectarDen)
 
-        self.BotonCantEst.setStyleSheet("background-color:white")
+
         self.BotonCantEst.clicked.connect(ConectarCantEst)
 
 
