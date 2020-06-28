@@ -84,14 +84,13 @@ class Ventana1(QDialog):
 
         #Botones
         self.cerrar.clicked.connect(self.close)
-        self.cerrar.setStyleSheet("background-color:white")
-        self.setStyleSheet("background-color: #5ae9f2")
+
 
         self.numh.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
         self.nume.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
 
         self.enviar.clicked.connect(self.EnviarDatosEst)
-        self.enviar.setStyleSheet("background-color:white")
+
 
 
 
