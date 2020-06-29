@@ -13,59 +13,140 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="titulo">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>20</y>
-     <width>151</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Estrato 1</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="descripcion">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>80</y>
-     <width>371</width>
-     <height>141</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Este es el estrato más bajo: Bajo-bajo. Las condiciones de la casa al igual que &lt;/p&gt;&lt;p&gt;el entorno que le rodea poseen pocos lujos. Los habitantes que poseen este &lt;/p&gt;&lt;p&gt;estrato pueden recibir subsidios&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
+  <property name="styleSheet">
+   <string notr="true">QPushButton{
+	border:none;
+	background-color: #e53232;
+	border-radius:10px;
+}
+
+QPushButton:hover{
+ 	background-color:white;
+
+}
+
+*{
+background-color:#212323;
+}</string>
+  </property>
   <widget class="QPushButton" name="cerrar">
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>450</x>
      <y>0</y>
-     <width>31</width>
-     <height>23</height>
+     <width>41</width>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Century Gothic</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>X</string>
    </property>
   </widget>
-  <widget class="QLabel" name="descripcion_2">
+  <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>260</y>
-     <width>371</width>
-     <height>141</height>
+     <x>40</x>
+     <y>20</y>
+     <width>411</width>
+     <height>331</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Advertencia: Los resultados obtenidos son aproximaciones. NO son datos 
- totalmente seguros ni acertados,ya que el resultado puede llegar a errores
-dependiendo de los parámetros reales.</string>
+   <property name="styleSheet">
+    <string notr="true">*{
+	background-color:  #323333  ;
+	font-family: &quot;Century Gothic&quot;;
+	color:white ;
+	border-radius:10px;
+}
+
+QLabel{
+
+	background-color:#3595a0;;
+
+
+}</string>
    </property>
+   <widget class="QLabel" name="titulo">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>10</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Estrato 1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="descripcion">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>391</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Este es el estrato más bajo: Bajo-bajo. Las  
+condiciones de la casa al igual que el entorno
+ que le rodea poseen pocos lujos. Los habitantes
+ que poseen este estrato pueden recibir subsidios</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="descripcion_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>220</y>
+      <width>371</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:   #dc0707;</string>
+    </property>
+    <property name="text">
+     <string>Advertencia: Los resultados obtenidos son
+ aproximaciones. NO son datos totalmente
+ seguros ni acertados,ya que el resultado
+ puede llegar a errores dependiendo de
+ los parámetros reales.</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

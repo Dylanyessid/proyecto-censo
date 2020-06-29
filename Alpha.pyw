@@ -201,8 +201,7 @@ class Est1(QDialog):
 
         #Botones
         self.cerrar.clicked.connect(self.close)
-        self.cerrar.setStyleSheet("background-color:white")
-        self.setStyleSheet("background-color: #5ae9f2")
+
 
 class Est2(QDialog):
     def __init__(self):
@@ -213,11 +212,11 @@ class Est2(QDialog):
 
         #Botones
         self.cerrar.clicked.connect(self.close)
-        self.cerrar.setStyleSheet("background-color:white")
-        self.setStyleSheet("background-color: #5ae9f2")
 
         self.titulo.setText("Estrato 2")
-        self.descripcion.setText("Este es el estrato: Bajo. Las condiciones de la casa al igual que en el entorno son un poco mejores. \nEste estrato tambien pueden recibir subsidios.")
+        self.titulo.setAlignment(Qt.AlignCenter)
+
+        self.descripcion.setText("Este es el estrato: Bajo. Las condiciones de la casa\nal igual que en el entorno son un poco mejores.\n Este estrato tambien pueden recibir subsidios.")
 
 
 
@@ -232,11 +231,11 @@ class Est3(QDialog):
 
         #Botones
         self.cerrar.clicked.connect(self.close)
-        self.cerrar.setStyleSheet("background-color:white")
-        self.setStyleSheet("background-color: #5ae9f2")
+
 
         self.titulo.setText("Estrato 3")
-        self.descripcion.setText("Este estrato corresponde a: Medio-bajo. Las condiciones en las que se vive son \nconsiderables. Este estrato es el más alto en el que se pueden recibir subsidios")
+        self.titulo.setAlignment(Qt.AlignCenter)
+        self.descripcion.setText("Este estrato corresponde a: Medio-bajo. Las\ncondiciones en las que se vive son considerables.\nEste estrato es el más alto en el que\nse pueden recibir subsidios")
 
 
 class Est4(QDialog):
@@ -248,11 +247,11 @@ class Est4(QDialog):
 
         #Botones
         self.cerrar.clicked.connect(self.close)
-        self.cerrar.setStyleSheet("background-color:white")
-        self.setStyleSheet("background-color: #5ae9f2")
+
 
         self.titulo.setText("Estrato 4")
-        self.descripcion.setText("Este estrato corresponde a: Medio.\nUna característica de este estrato es que no puede recibir subsidios(como los más bajos)\nni tienen que pagar sobrecostos (como los más altos).")
+        self.titulo.setAlignment(Qt.AlignCenter)
+        self.descripcion.setText("Este estrato corresponde a: Medio.\nUna característica de este estrato es que no\npuede recibir subsidios(como los más bajos)\nni tienen que pagar sobrecostos\n(como los más altos).")
 
 class Est5(QDialog):
     def __init__(self):
@@ -263,11 +262,10 @@ class Est5(QDialog):
 
         #Botones
         self.cerrar.clicked.connect(self.close)
-        self.cerrar.setStyleSheet("background-color:white")
-        self.setStyleSheet("background-color: #5ae9f2")
 
         self.titulo.setText("Estrato 5")
-        self.descripcion.setText("Este estrato corresponde a: Medio-alto.\nA partir de este estrato se debe de pagar sobrecostos en los servicios\npúblicos como contribución ya que suelen tener mayores recursos económicos.")
+        self.titulo.setAlignment(Qt.AlignCenter)
+        self.descripcion.setText("Este estrato corresponde a: Medio-alto.\nA partir de este estrato se debe de pagar\nsobrecostos en los servicios públicos\ncomo contribución ya que suelen\ntener mayores recursos económicos.")
 class Est6(QDialog):
     def __init__(self):
         QDialog.__init__(self)
@@ -277,11 +275,11 @@ class Est6(QDialog):
 
         #Botones
         self.cerrar.clicked.connect(self.close)
-        self.cerrar.setStyleSheet("background-color:white")
-        self.setStyleSheet("background-color: #5ae9f2")
+
 
         self.titulo.setText("Estrato 6")
-        self.descripcion.setText("Este estrato corresponde a: Alto. \nEs el estrato socioeconómico más alto. Poseen excelentes condiciones\ntanto de vivienda como de entorno y también paga sobrecostos en los\nservicios públicos.")
+        self.titulo.setAlignment(Qt.AlignCenter)
+        self.descripcion.setText("Este estrato corresponde a: Alto. \nEs el estrato socioeconómico más alto. Poseen\nexcelentes condiciones tanto de vivienda\ncomo de entorno y también paga\nsobrecostos en los servicios públicos.")
 
 class Ventana2(QDialog):
     def __init__(self):

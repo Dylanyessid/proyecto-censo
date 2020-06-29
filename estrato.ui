@@ -7,25 +7,45 @@
     <x>0</x>
     <y>0</y>
     <width>641</width>
-    <height>596</height>
+    <height>599</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">*{
+   <string notr="true">QPushButton{
+	border:none;
+	background-color: #e53232;
+	border-radius:10px;
+}
+
+QPushButton:hover{
+ 	background-color:white;
+
+}
+
+
+*{
 background-color:#212323;
 }</string>
   </property>
   <widget class="QPushButton" name="cerrar">
    <property name="geometry">
     <rect>
-     <x>590</x>
+     <x>610</x>
      <y>0</y>
-     <width>31</width>
-     <height>23</height>
+     <width>41</width>
+     <height>21</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Century Gothic</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>X</string>
@@ -41,7 +61,20 @@ background-color:#212323;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">*{
+    <string notr="true">QPushButton{
+	background-color:  #3595a0;
+	border:none;
+	border-radius: 10px;
+}
+
+
+QPushButton:hover{
+	color: black;
+	background-color: #f9f32d;
+	}	
+
+
+*{
 	background-color:  #323333  ;
 	font-family: &quot;Century Gothic&quot;;
 	color:white ;
@@ -694,6 +727,15 @@ color:black;
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Enviar</string>
     </property>
@@ -714,6 +756,9 @@ color:black;
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #dc0707;</string>
     </property>
     <property name="text">
      <string/>
