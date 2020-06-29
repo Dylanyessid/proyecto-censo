@@ -6,122 +6,256 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>544</width>
+    <width>499</width>
     <height>489</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton{
+	border:none;
+	background-color: #e53232;
+	border-radius:10px;
+}
+
+QPushButton:hover{
+ 	background-color:white;
+
+}
+
+
+*{
+background-color:#212323;
+}</string>
+  </property>
   <widget class="QPushButton" name="cerrar">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>470</x>
      <y>0</y>
      <width>31</width>
      <height>23</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Century Gothic</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="text">
     <string>X</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>40</x>
      <y>20</y>
-     <width>161</width>
-     <height>81</height>
+     <width>411</width>
+     <height>461</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Ingrese el nombre del territorio</string>
+   <property name="styleSheet">
+    <string notr="true">*{
+	background-color:  #323333  ;
+	font-family: &quot;Century Gothic&quot;;
+	color:white ;
+	border-radius:10px;
+}
+
+QPushButton{
+	background-color:  #3595a0;
+	border:none;
+	border-radius: 10px;
+}
+
+
+QPushButton:hover{
+	color: black;
+	background-color: #f9f32d;
+	}	
+
+QLineEdit{
+
+background-color:white;
+color:black;
+
+}</string>
    </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>100</y>
-     <width>161</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Ingrese la población en valores 
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>10</y>
+      <width>241</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ingrese el nombre del territorio:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Region">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>90</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="maxLength">
+     <number>15</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>120</y>
+      <width>251</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ingrese la población en valores 
 numéricos:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>190</y>
-     <width>161</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Ingrese la superficie 
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="CuadroPob">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>200</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="CuadroSup">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>290</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>220</y>
+      <width>221</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ingrese la superficie 
 (en kilómetros cuadrados):</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="resultado">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>410</y>
-     <width>291</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="Region">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>90</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="CuadroPob">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>170</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="CuadroSup">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>260</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="enviar">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>330</y>
-     <width>111</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Enviar</string>
-   </property>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="enviar">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>330</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Enviar</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="resultado">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>390</y>
+      <width>371</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #ff2121 ;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
