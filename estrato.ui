@@ -359,7 +359,7 @@ color:black;
       <family>Century Gothic</family>
       <pointsize>10</pointsize>
       <weight>75</weight>
-      <italic>true</italic>
+      <italic>false</italic>
       <bold>true</bold>
      </font>
     </property>
@@ -414,7 +414,7 @@ color:black;
       <family>Century Gothic</family>
       <pointsize>10</pointsize>
       <weight>75</weight>
-      <italic>true</italic>
+      <italic>false</italic>
       <bold>true</bold>
      </font>
     </property>
@@ -758,7 +758,7 @@ color:black;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: #dc0707;</string>
+     <string notr="true">color:  #ff2121 ;</string>
     </property>
     <property name="text">
      <string/>

@@ -290,14 +290,15 @@ class Ventana2(QDialog):
 
         #Botones
         self.cerrar.clicked.connect(self.close)
-        self.cerrar.setStyleSheet("background-color:white")
-        self.setStyleSheet("background-color: #5ae9f2")
 
         self.enviar.clicked.connect(self.EnviarDatosDes)
 
-        self.Region.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        self.CuadroDesempleados.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        self.CuadroPoblacionAct.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+
+
+
+        self.Region.setAlignment(Qt.AlignCenter)
+        self.CuadroDesempleados.setAlignment(Qt.AlignCenter)
+        self.CuadroPoblacionAct.setAlignment(Qt.AlignCenter)
         self.resultado.setAlignment(Qt.AlignCenter)
 
     def EnviarDatosDes(self):
@@ -315,13 +316,13 @@ class Ventana2(QDialog):
 
                 self.resultado.setText("No puedes dejar vacío el nombre de la región")
 
-            elif int(NumDesempleados)<=int(PoblacionAct) and int(NumDesempleados)>0 and int(PoblacionAct)>0:
+            elif int(NumDesempleados)<=int(PoblacionAct) and int(NumDesempleados)>=0 and int(PoblacionAct)>=0:
 
                 self.resultado.setText("La tasa de desempleo en " + NombreTerritorio.upper() + " es de: \n % " + str(round(TasaDesempleo,2)))
 
             elif (int(NumDesempleados)>int(PoblacionAct)):
 
-                self.resultado.setText("El Numero de desempleados no puede ser mayor que la población")
+                self.resultado.setText("El Numero de desempleados no\npuede ser mayor que la población")
 
             else:
 
@@ -336,7 +337,7 @@ class Ventana2(QDialog):
 
         except ZeroDivisionError:
 
-            self.resultado.setText("No puedes introducir un número 0 en la Población Activa")
+            self.resultado.setText("No puedes introducir un\nnúmero 0 en la población activa")
 
 class Ventana3(QDialog):
     def __init__(self):
