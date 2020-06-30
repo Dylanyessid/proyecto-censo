@@ -7,6 +7,9 @@ from PyQt5.QtCore import *
 from menu import *
 from estrato import *
 from est import *
+from desempleo import *
+from densidad import *
+
 
 #Clase Constructor de ventanas
 class Menu(QMainWindow):
@@ -300,27 +303,28 @@ class Est6(QDialog):
 class Ventana2(QDialog):
     def __init__(self):
         QDialog.__init__(self)
-        uic.loadUi("desempleo.ui",self)
+        self.ui = Ui_desempleo()
+        self.ui.setupUi(self)
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
         #Botones
-        self.cerrar.clicked.connect(self.close)
+        self.ui.cerrar.clicked.connect(self.close)
 
-        self.enviar.clicked.connect(self.EnviarDatosDes)
-
-
+        self.ui.enviar.clicked.connect(self.EnviarDatosDes)
 
 
-        self.Region.setAlignment(Qt.AlignCenter)
-        self.CuadroDesempleados.setAlignment(Qt.AlignCenter)
-        self.CuadroPoblacionAct.setAlignment(Qt.AlignCenter)
-        self.resultado.setAlignment(Qt.AlignCenter)
+
+
+        self.ui.Region.setAlignment(Qt.AlignCenter)
+        self.ui.CuadroDesempleados.setAlignment(Qt.AlignCenter)
+        self.ui.CuadroPoblacionAct.setAlignment(Qt.AlignCenter)
+        self.ui.resultado.setAlignment(Qt.AlignCenter)
 
     def EnviarDatosDes(self):
-        NombreTerritorio = self.Region.text()
-        NumDesempleados = self.CuadroDesempleados.text()
-        PoblacionAct = self.CuadroPoblacionAct.text()
+        NombreTerritorio = self.ui.Region.text()
+        NumDesempleados = self.ui.CuadroDesempleados.text()
+        PoblacionAct = self.ui.CuadroPoblacionAct.text()
 
 
         try:
@@ -330,58 +334,59 @@ class Ventana2(QDialog):
 
             if NombreTerritorio=="":
 
-                self.resultado.setText("No puedes dejar vacío el nombre de la región")
+                self.ui.resultado.setText("No puedes dejar vacío el nombre de la región")
 
             elif int(NumDesempleados)<=int(PoblacionAct) and int(NumDesempleados)>=0 and int(PoblacionAct)>=0:
 
-                self.resultado.setText("La tasa de desempleo en " + NombreTerritorio.upper() + " es de: \n % " + str(round(TasaDesempleo,2)))
+                self.ui.resultado.setText("La tasa de desempleo en " + NombreTerritorio.upper() + " es de: \n % " + str(round(TasaDesempleo,2)))
 
             elif (int(NumDesempleados)>int(PoblacionAct)):
 
-                self.resultado.setText("El Numero de desempleados no\npuede ser mayor que la población")
+                self.ui.resultado.setText("El Numero de desempleados no\npuede ser mayor que la población")
 
             else:
 
-                self.resultado.setText("No es posible ingresar números negativos")
+                self.ui.resultado.setText("No es posible ingresar números negativos")
 
 
 
 
         except ValueError:
 
-            self.resultado.setText("Ha ingresado un dato inválido, inténtalo de nuevo")
+            self.ui.resultado.setText("Ha ingresado un dato inválido, inténtalo de nuevo")
 
         except ZeroDivisionError:
 
-            self.resultado.setText("No puedes introducir un\nnúmero 0 en la población activa")
+            self.ui.resultado.setText("No puedes introducir un\nnúmero 0 en la población activa")
 
 class Ventana3(QDialog):
     def __init__(self):
         QDialog.__init__(self)
-        uic.loadUi("densidad.ui",self)
+        self.ui = Ui_densidad()
+        self.ui.setupUi(self)
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
         #Botones
-        self.cerrar.clicked.connect(self.close)
+        self.ui.cerrar.clicked.connect(self.close)
 
 
-        self.Region.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        self.CuadroPob.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        self.CuadroSup.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.ui.Region.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.ui.CuadroPob.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.ui.CuadroSup.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
 
-        self.resultado.setAlignment(Qt.AlignCenter)
-        self.Region.setAlignment(Qt.AlignCenter)
-        self.CuadroPob.setAlignment(Qt.AlignCenter)
-        self.CuadroSup.setAlignment(Qt.AlignCenter)
+        self.ui.resultado.setAlignment(Qt.AlignCenter)
+        self.ui.Region.setAlignment(Qt.AlignCenter)
+        self.ui.CuadroPob.setAlignment(Qt.AlignCenter)
+        self.ui.CuadroSup.setAlignment(Qt.AlignCenter)
 
-        self.enviar.clicked.connect(self.EnviarDatosDen)
+        self.ui.enviar.clicked.connect(self.EnviarDatosDen)
 
     def EnviarDatosDen(self):
 
-        NombreTerritorio = self.Region.text()
-        PoblacionTotal= self.CuadroPob.text()
-        Superficie= self.CuadroSup.text()
+        NombreTerritorio = self.ui.Region.text()
+        PoblacionTotal= self.ui.CuadroPob.text()
+        Superficie= self.ui.CuadroSup.text()
 
         try:
 
@@ -389,35 +394,35 @@ class Ventana3(QDialog):
 
             if NombreTerritorio=="":
 
-                self.resultado.setText("No puedes dejar vacío el nombre de la región")
+                self.ui.resultado.setText("No puedes dejar vacío el nombre de la región")
 
             elif int(PoblacionTotal)>0 and float(Superficie)>0:
 
-                self.resultado.setText("La densidad de población de \n " +str(NombreTerritorio.upper()) +  " es de "+ str(round(DensidadPoblacion,2)) + "\n personas por kilómetro cuadrado.")
+                self.ui.resultado.setText("La densidad de población de \n " +str(NombreTerritorio.upper()) +  " es de "+ str(round(DensidadPoblacion,2)) + "\n personas por kilómetro cuadrado.")
 
             elif int(PoblacionTotal)<0 or float(Superficie)<0:
 
-                self.resultado.setText("No puedes llenar los datos\ncon números negativos.")
+                self.ui.resultado.setText("No puedes llenar los datos\ncon números negativos.")
 
             elif int(PoblacionTotal)==0:
 
-                self.resultado.setText("No puedes llenar los espacios\ncon 0. Reinténtalo" )
+                self.ui.resultado.setText("No puedes llenar los espacios\ncon 0. Reinténtalo" )
 
 
         except ValueError:
 
-            self.resultado.setText("Has ingresado incorrectamente\nlos datos. Reinténtalo")
+            self.ui.resultado.setText("Has ingresado incorrectamente\nlos datos. Reinténtalo")
 
         except ZeroDivisionError:
 
-            self.resultado.setText("No puedes introducir 0 en los espacios" )
+            self.ui.resultado.setText("No puedes introducir 0 en los espacios" )
 
 class Ventana4(QDialog):
     def __init__(self):
         QDialog.__init__(self)
         uic.loadUi("cant_estrato.ui",self)
-        self.setWindowFlag(Qt.WindowCloseButtonHint, False)
-        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.ui.setWindowFlag(Qt.WindowCloseButtonHint, False)
+        self.ui.setWindowFlag(Qt.FramelessWindowHint)
 
         #Botones
         self.cerrar.clicked.connect(self.close)
