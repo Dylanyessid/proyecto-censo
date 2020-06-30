@@ -4,7 +4,9 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 import ctypes
 from PyQt5.QtCore import *
-
+from menu import *
+from estrato import *
+from est import *
 
 #Clase Constructor de ventanas
 class Menu(QMainWindow):
@@ -16,13 +18,17 @@ class Menu(QMainWindow):
 
         #Iniciar el objeto QMainWindow
         QMainWindow.__init__(self)
+
+        self.ui=Ui_CENSO()
+        self.ui.setupUi(self)
+
         self.setFixedSize(607, 487)
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
 
         #Cargar la configuracion .ui
-        uic.loadUi("menu.ui",self)
+
 
         #Programa el cerrado del programa y un botón que lo ejecuta.
         def CerrarPrincipal(self):
@@ -54,42 +60,44 @@ class Menu(QMainWindow):
 
 
         #Botones y su configuración
-        self.cerrar_principal.clicked.connect(CerrarPrincipal)
+        self.ui.cerrar_principal.clicked.connect(CerrarPrincipal)
 
 
-        self.BotonEst.clicked.connect(ConectarEst)
+        self.ui.BotonEst.clicked.connect(ConectarEst)
 
 
-        self.BotonDes.clicked.connect(ConectarDes)
+        self.ui.BotonDes.clicked.connect(ConectarDes)
 
 
-        self.BotonDen.clicked.connect(ConectarDen)
+        self.ui.BotonDen.clicked.connect(ConectarDen)
 
 
-        self.BotonCantEst.clicked.connect(ConectarCantEst)
+        self.ui.BotonCantEst.clicked.connect(ConectarCantEst)
 
 
 class Ventana1(QDialog):
     def __init__(self):
         QDialog.__init__(self)
+
+        self.ui = Ui_estrato()
+        self.ui.setupUi(self)
+
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
-        uic.loadUi("estrato.ui",self)
-
-        self.numh.setAlignment(Qt.AlignCenter)
-        self.nume.setAlignment(Qt.AlignCenter)
-        self.error.setAlignment(Qt.AlignCenter)
+        self.ui.numh.setAlignment(Qt.AlignCenter)
+        self.ui.nume.setAlignment(Qt.AlignCenter)
+        self.ui.error.setAlignment(Qt.AlignCenter)
 
 
         #Botones
-        self.cerrar.clicked.connect(self.close)
+        self.ui.cerrar.clicked.connect(self.close)
 
 
-        self.numh.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        self.nume.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.ui.numh.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.ui.nume.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
 
-        self.enviar.clicked.connect(self.EnviarDatosEst)
+        self.ui.enviar.clicked.connect(self.EnviarDatosEst)
 
 
 
@@ -98,52 +106,52 @@ class Ventana1(QDialog):
 
 
 
-        NumHabitaciones = self.numh.text()
-        NumElectro = self.nume.text()
+        NumHabitaciones = self.ui.numh.text()
+        NumElectro = self.ui.nume.text()
         #print(int(NumHabitaciones))
         #print(int(NumElectro))
 
 
         try:
-            if self.regulares.isChecked():
+            if self.ui.regulares.isChecked():
                 Condiciones=2
-            elif self.aceptables.isChecked():
+            elif self.ui.aceptables.isChecked():
                 Condiciones=4
-            elif self.buenas.isChecked():
+            elif self.ui.buenas.isChecked():
                 Condiciones=8
-            elif self.muybuenas.isChecked():
+            elif self.ui.muybuenas.isChecked():
                 Condiciones=12
-            elif self.excelentes.isChecked():
+            elif self.ui.excelentes.isChecked():
                 Condiciones=14
 
 
-            if self.conexionsi.isChecked():
+            if self.ui.conexionsi.isChecked():
                 OpcionInternet=4
-            elif self.conexionno.isChecked():
+            elif self.ui.conexionno.isChecked():
                 OpcionInternet=0
 
 
-            if self.viassi.isChecked():
+            if self.ui.viassi.isChecked():
                 OpcionVia=4
-            elif self.conexionno.isChecked():
+            elif self.ui.conexionno.isChecked():
                 OpcionVia=1
 
 
 
-            if self.garagesi.isChecked():
+            if self.ui.garagesi.isChecked():
                 OpcionGarage=5
-            elif self.garageno.isChecked():
+            elif self.ui.garageno.isChecked():
                 OpcionGarage=1
 
 
 
-            if self.ingreso1.isChecked():
+            if self.ui.ingreso1.isChecked():
                 Ingreso=2
-            elif self.ingreso2.isChecked():
+            elif self.ui.ingreso2.isChecked():
                 Ingreso=5
-            elif self.ingreso3.isChecked():
+            elif self.ui.ingreso3.isChecked():
                 Ingreso=7
-            elif self.ingreso4.isChecked():
+            elif self.ui.ingreso4.isChecked():
                 Ingreso=9
 
 
@@ -184,10 +192,10 @@ class Ventana1(QDialog):
 
             else:
 
-                self.error.setText("No es posible ingresar números negativos")
+                self.ui.error.setText("No es posible ingresar números negativos")
 
         except ValueError:
-            self.error.setText("Ha ingresado un dato inválido, inténtalo de nuevo")
+            self.ui.error.setText("Ha ingresado un dato inválido, inténtalo de nuevo")
 
 
 
@@ -195,28 +203,32 @@ class Ventana1(QDialog):
 class Est1(QDialog):
     def __init__(self):
         QDialog.__init__(self)
-        uic.loadUi("est.ui",self)
+
+        self.ui = Ui_est()
+        self.ui.setupUi(self)
+
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
         #Botones
-        self.cerrar.clicked.connect(self.close)
+        self.ui.cerrar.clicked.connect(self.close)
 
 
 class Est2(QDialog):
     def __init__(self):
         QDialog.__init__(self)
-        uic.loadUi("est.ui",self)
+        self.ui = Ui_est()
+        self.ui.setupUi(self)
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
         #Botones
-        self.cerrar.clicked.connect(self.close)
+        self.ui.cerrar.clicked.connect(self.close)
 
-        self.titulo.setText("Estrato 2")
-        self.titulo.setAlignment(Qt.AlignCenter)
+        self.ui.titulo.setText("Estrato 2")
+        self.ui.titulo.setAlignment(Qt.AlignCenter)
 
-        self.descripcion.setText("Este es el estrato: Bajo. Las condiciones de la casa\nal igual que en el entorno son un poco mejores.\n Este estrato tambien pueden recibir subsidios.")
+        self.ui.descripcion.setText("Este es el estrato: Bajo. Las condiciones de la casa\nal igual que en el entorno son un poco mejores.\n Este estrato tambien pueden recibir subsidios.")
 
 
 
@@ -225,61 +237,65 @@ class Est2(QDialog):
 class Est3(QDialog):
     def __init__(self):
         QDialog.__init__(self)
-        uic.loadUi("est.ui",self)
+        self.ui = Ui_est()
+        self.ui.setupUi(self)
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
         #Botones
-        self.cerrar.clicked.connect(self.close)
+        self.ui.cerrar.clicked.connect(self.close)
 
 
-        self.titulo.setText("Estrato 3")
-        self.titulo.setAlignment(Qt.AlignCenter)
-        self.descripcion.setText("Este estrato corresponde a: Medio-bajo. Las\ncondiciones en las que se vive son considerables.\nEste estrato es el más alto en el que\nse pueden recibir subsidios")
+        self.ui.titulo.setText("Estrato 3")
+        self.ui.titulo.setAlignment(Qt.AlignCenter)
+        self.ui.descripcion.setText("Este estrato corresponde a: Medio-bajo. Las\ncondiciones en las que se vive son considerables.\nEste estrato es el más alto en el que\nse pueden recibir subsidios")
 
 
 class Est4(QDialog):
     def __init__(self):
         QDialog.__init__(self)
-        uic.loadUi("est.ui",self)
+        self.ui = Ui_est()
+        self.ui.setupUi(self)
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
         #Botones
-        self.cerrar.clicked.connect(self.close)
+        self.ui.cerrar.clicked.connect(self.close)
 
 
-        self.titulo.setText("Estrato 4")
-        self.titulo.setAlignment(Qt.AlignCenter)
-        self.descripcion.setText("Este estrato corresponde a: Medio.\nUna característica de este estrato es que no\npuede recibir subsidios(como los más bajos)\nni tienen que pagar sobrecostos\n(como los más altos).")
+        self.ui.titulo.setText("Estrato 4")
+        self.ui.titulo.setAlignment(Qt.AlignCenter)
+        self.ui.descripcion.setText("Este estrato corresponde a: Medio.\nUna característica de este estrato es que no\npuede recibir subsidios(como los más bajos)\nni tienen que pagar sobrecostos\n(como los más altos).")
 
 class Est5(QDialog):
     def __init__(self):
         QDialog.__init__(self)
-        uic.loadUi("est.ui",self)
+        self.ui = Ui_est()
+        self.ui.setupUi(self)
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
         #Botones
-        self.cerrar.clicked.connect(self.close)
+        self.ui.cerrar.clicked.connect(self.close)
 
-        self.titulo.setText("Estrato 5")
-        self.titulo.setAlignment(Qt.AlignCenter)
-        self.descripcion.setText("Este estrato corresponde a: Medio-alto.\nA partir de este estrato se debe de pagar\nsobrecostos en los servicios públicos\ncomo contribución ya que suelen\ntener mayores recursos económicos.")
+        self.ui.titulo.setText("Estrato 5")
+        self.ui.titulo.setAlignment(Qt.AlignCenter)
+        self.ui.descripcion.setText("Este estrato corresponde a: Medio-alto.\nA partir de este estrato se debe de pagar\nsobrecostos en los servicios públicos\ncomo contribución ya que suelen\ntener mayores recursos económicos.")
 class Est6(QDialog):
     def __init__(self):
         QDialog.__init__(self)
-        uic.loadUi("est.ui",self)
+        self.ui = Ui_est()
+        self.ui.setupUi(self)
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
         #Botones
-        self.cerrar.clicked.connect(self.close)
+        self.ui.cerrar.clicked.connect(self.close)
 
 
-        self.titulo.setText("Estrato 6")
-        self.titulo.setAlignment(Qt.AlignCenter)
-        self.descripcion.setText("Este estrato corresponde a: Alto. \nEs el estrato socioeconómico más alto. Poseen\nexcelentes condiciones tanto de vivienda\ncomo de entorno y también paga\nsobrecostos en los servicios públicos.")
+        self.ui.titulo.setText("Estrato 6")
+        self.ui.titulo.setAlignment(Qt.AlignCenter)
+        self.ui.descripcion.setText("Este estrato corresponde a: Alto. \nEs el estrato socioeconómico más alto. Poseen\nexcelentes condiciones tanto de vivienda\ncomo de entorno y también paga\nsobrecostos en los servicios públicos.")
 
 class Ventana2(QDialog):
     def __init__(self):
