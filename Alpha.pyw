@@ -405,16 +405,14 @@ class Ventana4(QDialog):
 
         #Botones
         self.cerrar.clicked.connect(self.close)
-        self.cerrar.setStyleSheet("background-color:white")
-        self.setStyleSheet("background-color: #5ae9f2")
 
-        self.Region.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        self.est1.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        self.est2.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        self.est3.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        self.est4.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        self.est5.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
-        self.est6.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
+        self.Region.setAlignment(Qt.AlignCenter)
+        self.est1.setAlignment(Qt.AlignCenter)
+        self.est2.setAlignment(Qt.AlignCenter)
+        self.est3.setAlignment(Qt.AlignCenter)
+        self.est4.setAlignment(Qt.AlignCenter)
+        self.est5.setAlignment(Qt.AlignCenter)
+        self.est6.setAlignment(Qt.AlignCenter)
 
         self.error.setAlignment(Qt.AlignCenter)
 
@@ -444,7 +442,7 @@ class Ventana4(QDialog):
             if int(Estrato[0])<0 or int(Estrato[1])<0 or int(Estrato[2])<0 or int(Estrato[3])<0 or int(Estrato[4])<0 or int(Estrato[5])<0:
 
 
-                    self.error.setText("Ha ingresado un o más números negativos. Reinténtalo")
+                self.error.setText("Ha ingresado un o más números negativos.\nReinténtalo")
 
             if NombreTerritorio=="":
 
@@ -469,7 +467,7 @@ class Ventana4(QDialog):
 
         except ValueError:
 
-            self.error.setText("Has ingresado incorrectamente los datos. Reinténtalo")
+            self.error.setText("Has ingresado incorrectamente\nlos datos. Reinténtalo")
 
         except ZeroDivisionError:
 
@@ -485,8 +483,7 @@ class Porcentajes(QDialog):
 
         #Botones
         self.cerrar.clicked.connect(self.close)
-        self.cerrar.setStyleSheet("background-color:white")
-        self.setStyleSheet("background-color: #5ae9f2")
+
 
         self.porc1.setAlignment(Qt.AlignCenter)
         self.porc2.setAlignment(Qt.AlignCenter)
@@ -494,15 +491,16 @@ class Porcentajes(QDialog):
         self.porc4.setAlignment(Qt.AlignCenter)
         self.porc5.setAlignment(Qt.AlignCenter)
         self.porc6.setAlignment(Qt.AlignCenter)
+        self.total.setAlignment(Qt.AlignCenter)
 
-        self.porc1.setText("El Porcentaje del Estrato 1 en " + str(NombreTerritorio.upper()) + "\n es de %" + str(round(Porcentaje[0],2)))
-        self.porc2.setText("El Porcentaje del Estrato 2 en " + str(NombreTerritorio.upper()) + "\n es de %" + str(round(Porcentaje[1],2)))
-        self.porc3.setText("El Porcentaje del Estrato 3 en " + str(NombreTerritorio.upper()) + "\n es de %" + str(round(Porcentaje[2],2)))
-        self.porc4.setText("El Porcentaje del Estrato 4 en " + str(NombreTerritorio.upper()) + "\n es de %" + str(round(Porcentaje[3],2)))
-        self.porc5.setText("El Porcentaje del Estrato 5 en " + str(NombreTerritorio.upper()) + "\n es de %" + str(round(Porcentaje[4],2)))
-        self.porc6.setText("El Porcentaje del Estrato 6 en " + str(NombreTerritorio.upper()) + "\n es de %" + str(round(Porcentaje[5],2)))
+        self.porc1.setText("El Porcentaje del Estrato 1 en\n " + str(NombreTerritorio.upper()) + "\nes de %" + str(round(Porcentaje[0],2)))
+        self.porc2.setText("El Porcentaje del Estrato 2 en\n " + str(NombreTerritorio.upper()) + "\nes de %" + str(round(Porcentaje[1],2)))
+        self.porc3.setText("El Porcentaje del Estrato 3 en\n " + str(NombreTerritorio.upper()) + "\nes de %" + str(round(Porcentaje[2],2)))
+        self.porc4.setText("El Porcentaje del Estrato 4 en\n " + str(NombreTerritorio.upper()) + "\nes de %" + str(round(Porcentaje[3],2)))
+        self.porc5.setText("El Porcentaje del Estrato 5 en\n " + str(NombreTerritorio.upper()) + "\nes de %" + str(round(Porcentaje[4],2)))
+        self.porc6.setText("El Porcentaje del Estrato 6 en\n " + str(NombreTerritorio.upper()) + "\nes de %" + str(round(Porcentaje[5],2)))
 
-        self.total.setText("El total de viviendas en " + str(NombreTerritorio.upper()) + " es de: " + str(TotalEst) )
+        self.total.setText("El total de viviendas en\n" + str(NombreTerritorio.upper()) + "\nes de: " + str(TotalEst) )
 
 
 #Inicializa la aplicacion
