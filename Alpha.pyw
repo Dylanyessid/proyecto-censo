@@ -317,18 +317,18 @@ class Ventana2(QDialog):
 
         #Botones
         self.ui.cerrar.clicked.connect(self.close)
-
         self.ui.enviar.clicked.connect(self.EnviarDatosDes)
 
-
-
-
+        #Configuraciones de entrada de ttexto
         self.ui.Region.setAlignment(Qt.AlignCenter)
         self.ui.CuadroDesempleados.setAlignment(Qt.AlignCenter)
         self.ui.CuadroPoblacionAct.setAlignment(Qt.AlignCenter)
         self.ui.resultado.setAlignment(Qt.AlignCenter)
 
+    #Funcion que prrocesa los datos
     def EnviarDatosDes(self):
+
+        #Obtención de datos
         NombreTerritorio = self.ui.Region.text()
         NumDesempleados = self.ui.CuadroDesempleados.text()
         PoblacionAct = self.ui.CuadroPoblacionAct.text()
@@ -336,36 +336,42 @@ class Ventana2(QDialog):
 
         try:
 
+            #Intentar calcular el dato deseado
             TasaDesempleo=(int(NumDesempleados)/int(PoblacionAct)) * 100
-            #print(round(TasaDesempleo,2))
 
+            #Si el dato de la region esta vacio
             if NombreTerritorio=="":
 
                 self.ui.resultado.setText("No puedes dejar vacío el nombre de la región")
 
+            #Si los datos son correctos
             elif int(NumDesempleados)<=int(PoblacionAct) and int(NumDesempleados)>=0 and int(PoblacionAct)>=0:
 
                 self.ui.resultado.setText("La tasa de desempleo en " + NombreTerritorio.upper() + " es de: \n % " + str(round(TasaDesempleo,2)))
 
+            #Si los desempleados es mayor que la poblacion activa
             elif (int(NumDesempleados)>int(PoblacionAct)):
 
                 self.ui.resultado.setText("El Numero de desempleados no\npuede ser mayor que la población")
 
+            #Si no se cumple ninguna se asume que son negativos los numeros
             else:
 
                 self.ui.resultado.setText("No es posible ingresar números negativos")
 
 
 
-
+        #Por si ingresa datos invalidos
         except ValueError:
 
             self.ui.resultado.setText("Ha ingresado un dato inválido, inténtalo de nuevo")
 
+        #Por si ingresa un 0, causando error matematico
         except ZeroDivisionError:
 
             self.ui.resultado.setText("No puedes introducir un\nnúmero 0 en la población activa")
 
+#Clase de la ventana de Calcular densidad
 class Ventana3(QDialog):
     def __init__(self):
 
@@ -401,33 +407,40 @@ class Ventana3(QDialog):
 
         try:
 
+            #Intentar calcular los datos solicitados
             DensidadPoblacion=int(PoblacionTotal) / float(Superficie)
 
+            #Si el dato de la region esta vacio
             if NombreTerritorio=="":
 
                 self.ui.resultado.setText("No puedes dejar vacío el nombre de la región")
 
+            #Si los datos son correctos
             elif int(PoblacionTotal)>0 and float(Superficie)>0:
 
                 self.ui.resultado.setText("La densidad de población de \n " +str(NombreTerritorio.upper()) +  " es de "+ str(round(DensidadPoblacion,2)) + "\n personas por kilómetro cuadrado.")
 
+            #Si los datos son negativos
             elif int(PoblacionTotal)<0 or float(Superficie)<0:
 
                 self.ui.resultado.setText("No puedes llenar los datos\ncon números negativos.")
 
+            #Si se ingresa un 0.
             elif int(PoblacionTotal)==0:
 
                 self.ui.resultado.setText("No puedes llenar los espacios\ncon 0. Reinténtalo" )
 
-
+        #Si se ingresan datos no válidos
         except ValueError:
 
             self.ui.resultado.setText("Has ingresado incorrectamente\nlos datos. Reinténtalo")
 
+        #Si se provoca un error por division entre 0
         except ZeroDivisionError:
 
             self.ui.resultado.setText("No puedes introducir 0 en los espacios" )
 
+#Clase que define la ventana para los porcentajes de estrato
 class Ventana4(QDialog):
     def __init__(self):
         QDialog.__init__(self)
@@ -440,7 +453,9 @@ class Ventana4(QDialog):
 
         #Botones
         self.ui.cerrar.clicked.connect(self.close)
+        self.ui.enviar.clicked.connect(self.CalcularPorcentaje)
 
+        #Estilos y configuraciones para las entradas de lineas de texto
         self.ui.Region.setAlignment(Qt.AlignCenter)
         self.ui.est1.setAlignment(Qt.AlignCenter)
         self.ui.est2.setAlignment(Qt.AlignCenter)
@@ -451,22 +466,25 @@ class Ventana4(QDialog):
 
         self.ui.error.setAlignment(Qt.AlignCenter)
 
-        self.ui.enviar.clicked.connect(self.CalcularPorcentaje)
 
 
+    #Funcion que procesa los datos
     def CalcularPorcentaje(self):
 
         try:
+
+        #Convierte en Globales
             global NombreTerritorio
             global Estrato
             global Porcentaje
             global TotalEst
 
+            #Obtencion de datos y creacion de vectores
             NombreTerritorio = self.ui.Region.text()
             Estrato=[]
             Porcentaje=[]
 
-
+            #Adicion de datos al primer vector con respecto a los datos ingresados
             Estrato.append(self.ui.est1.text())
             Estrato.append(self.ui.est2.text())
             Estrato.append(self.ui.est3.text())
@@ -474,23 +492,29 @@ class Ventana4(QDialog):
             Estrato.append(self.ui.est5.text())
             Estrato.append(self.ui.est6.text())
 
+            #Si los datos son negativos
             if int(Estrato[0])<0 or int(Estrato[1])<0 or int(Estrato[2])<0 or int(Estrato[3])<0 or int(Estrato[4])<0 or int(Estrato[5])<0:
 
 
                 self.ui.error.setText("Ha ingresado un o más números negativos.\nReinténtalo")
 
+            #Si el nombre de la region esta vacia.
             if NombreTerritorio=="":
 
                 self.ui.error.setText("No puedes dejar vacío el nombre de la región")
 
+            #Si son válidos los datos
             else:
 
+                #Si los numeros son positivos
                 if int(Estrato[0])>=0 and int(Estrato[1])>=0 and int(Estrato[2])>=0 and int(Estrato[3])>=0 and int(Estrato[4])>=0 and int(Estrato[5])>=0:
                     TotalEst=int(Estrato[0])+int(Estrato[1])+int(Estrato[2])+int(Estrato[3])+int(Estrato[4])+int(Estrato[5])
 
+                    #Bucle for que agrega valores al segundo vector
                     for i in [0,1,2,3,4,5]:
                         Porcentaje.append((100 * float(Estrato[i]))/float(TotalEst))
 
+                    #Cerrar esta ventana y abrir otra que muestre los resultados
                     self.close()
                     ResultadoPorc = Porcentajes()
                     ResultadoPorc.exec()
@@ -499,16 +523,17 @@ class Ventana4(QDialog):
 
 
 
-
+        #Si ingresa datos inválidos
         except ValueError:
 
             self.ui.error.setText("Has ingresado incorrectamente\nlos datos. Reinténtalo")
 
+        #Si se provoca un error de division entre 0
         except ZeroDivisionError:
 
             self.ui.error.setText("No puedes introducir 0 en los espacios" )
 
-
+#Clase que define la ventana de resultado de los porcentajes de estrato
 class Porcentajes(QDialog):
     def __init__(self):
         QDialog.__init__(self)
@@ -520,7 +545,7 @@ class Porcentajes(QDialog):
         #Botones
         self.ui.cerrar.clicked.connect(self.close)
 
-
+        #Configuraciones de los textos
         self.ui.porc1.setAlignment(Qt.AlignCenter)
         self.ui.porc2.setAlignment(Qt.AlignCenter)
         self.ui.porc3.setAlignment(Qt.AlignCenter)
@@ -539,7 +564,7 @@ class Porcentajes(QDialog):
         self.ui.total.setText("El total de viviendas en\n" + str(NombreTerritorio.upper()) + "\nes de: " + str(TotalEst) )
 
 
-#Inicializa la aplicacion
+#Inicializa la aplicacion principal
 app=QApplication(sys.argv)
 
 #Crea un objeto de la clase Menu
