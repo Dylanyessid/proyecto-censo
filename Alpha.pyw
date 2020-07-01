@@ -20,7 +20,7 @@ class Menu(QMainWindow):
     #Constructor de la clase
     def __init__(self):
 
-        #Iniciar el objeto QMainWindow
+        #Iniciar el objeto QMainWindow y sus configuraciones
         QMainWindow.__init__(self)
 
         self.ui=Ui_CENSO()
@@ -29,6 +29,7 @@ class Menu(QMainWindow):
         self.setFixedSize(607, 487)
         self.setWindowFlag(Qt.WindowCloseButtonHint, False)
         self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setWindowIcon(QtGui.QIcon("logo.ico"))
 
 
         #Cargar la configuracion .ui
@@ -58,31 +59,26 @@ class Menu(QMainWindow):
             VentanaCantEst=Ventana4()
             VentanaCantEst.exec()
 
-        #Estilos CSS
+
 
 
 
 
         #Botones y su configuración
         self.ui.cerrar_principal.clicked.connect(CerrarPrincipal)
-
-
         self.ui.BotonEst.clicked.connect(ConectarEst)
-
-
         self.ui.BotonDes.clicked.connect(ConectarDes)
-
-
         self.ui.BotonDen.clicked.connect(ConectarDen)
-
-
         self.ui.BotonCantEst.clicked.connect(ConectarCantEst)
 
-
+#Define la Ventana para calcular el estrato de una vivienda
 class Ventana1(QDialog):
     def __init__(self):
+
+        #Inicializa el objetto (Ventana)
         QDialog.__init__(self)
 
+        #Configuraciones de la ventana
         self.ui = Ui_estrato()
         self.ui.setupUi(self)
 
@@ -94,29 +90,27 @@ class Ventana1(QDialog):
         self.ui.error.setAlignment(Qt.AlignCenter)
 
 
-        #Botones
+        #Botones y configuracion
         self.ui.cerrar.clicked.connect(self.close)
+        self.ui.enviar.clicked.connect(self.EnviarDatosEst)
 
-
+        #Enntrada de linea de texto y configuracion
         self.ui.numh.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
         self.ui.nume.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
 
-        self.ui.enviar.clicked.connect(self.EnviarDatosEst)
 
 
-
-
+        #Funcion que procesa los datos
     def EnviarDatosEst(self):
 
-
-
+        #Obtención de datos de linea de texto
         NumHabitaciones = self.ui.numh.text()
         NumElectro = self.ui.nume.text()
-        #print(int(NumHabitaciones))
-        #print(int(NumElectro))
+
 
 
         try:
+        #Condicionales para asignar valores con respecto al RadioButton seleccionado
             if self.ui.regulares.isChecked():
                 Condiciones=2
             elif self.ui.aceptables.isChecked():
@@ -128,26 +122,20 @@ class Ventana1(QDialog):
             elif self.ui.excelentes.isChecked():
                 Condiciones=14
 
-
             if self.ui.conexionsi.isChecked():
                 OpcionInternet=4
             elif self.ui.conexionno.isChecked():
                 OpcionInternet=0
-
 
             if self.ui.viassi.isChecked():
                 OpcionVia=4
             elif self.ui.conexionno.isChecked():
                 OpcionVia=1
 
-
-
             if self.ui.garagesi.isChecked():
                 OpcionGarage=5
             elif self.ui.garageno.isChecked():
                 OpcionGarage=1
-
-
 
             if self.ui.ingreso1.isChecked():
                 Ingreso=2
@@ -158,11 +146,16 @@ class Ventana1(QDialog):
             elif self.ui.ingreso4.isChecked():
                 Ingreso=9
 
-
+            #Condicion que se activa cuando los valores son válidos
             if float(NumElectro)>0 and float(NumHabitaciones)>0:
+
+                #Calcula la suma entre todos los datos obtenidos
                 CondicionesVivienda=int(Condiciones) + int(OpcionInternet) + int(NumHabitaciones) + int(NumElectro) + int(OpcionVia) + int(OpcionGarage) + int(Ingreso)
+
+                #Cierra la ventana
                 self.close()
 
+            #Condiciones con respecto al valor total obtenido que abre una ventana con datos diferentes.
                 if CondicionesVivienda>0 and CondicionesVivienda<=23:
 
                     VEst=Est1()
@@ -195,19 +188,21 @@ class Ventana1(QDialog):
                     VEst6.exec()
 
             else:
-
+                #Si se ingresa numeros negativos
                 self.ui.error.setText("No es posible ingresar números negativos")
 
         except ValueError:
+            #Si se introduce datos inválidos
             self.ui.error.setText("Ha ingresado un dato inválido, inténtalo de nuevo")
 
 
 
-
+#Configuraciones de ventana de resultado para Estrato 1
 class Est1(QDialog):
     def __init__(self):
-        QDialog.__init__(self)
 
+        #Inicializa Ventana y sus configuraciones
+        QDialog.__init__(self)
         self.ui = Ui_est()
         self.ui.setupUi(self)
 
@@ -217,9 +212,11 @@ class Est1(QDialog):
         #Botones
         self.ui.cerrar.clicked.connect(self.close)
 
-
+#Configuraciones de ventana de resultado para Estrato 2
 class Est2(QDialog):
     def __init__(self):
+
+        #Inicializa Ventana y sus configuraciones
         QDialog.__init__(self)
         self.ui = Ui_est()
         self.ui.setupUi(self)
@@ -234,12 +231,11 @@ class Est2(QDialog):
 
         self.ui.descripcion.setText("Este es el estrato: Bajo. Las condiciones de la casa\nal igual que en el entorno son un poco mejores.\n Este estrato tambien pueden recibir subsidios.")
 
-
-
-
-
+#Configuraciones de ventana de resultado para Estrato 3
 class Est3(QDialog):
     def __init__(self):
+
+        #Inicializa Ventana y sus configuraciones
         QDialog.__init__(self)
         self.ui = Ui_est()
         self.ui.setupUi(self)
@@ -254,9 +250,11 @@ class Est3(QDialog):
         self.ui.titulo.setAlignment(Qt.AlignCenter)
         self.ui.descripcion.setText("Este estrato corresponde a: Medio-bajo. Las\ncondiciones en las que se vive son considerables.\nEste estrato es el más alto en el que\nse pueden recibir subsidios")
 
-
+#Configuraciones de ventana de resultado para Estrato 4
 class Est4(QDialog):
     def __init__(self):
+
+        #Inicializa Ventana y sus configuraciones
         QDialog.__init__(self)
         self.ui = Ui_est()
         self.ui.setupUi(self)
@@ -271,8 +269,11 @@ class Est4(QDialog):
         self.ui.titulo.setAlignment(Qt.AlignCenter)
         self.ui.descripcion.setText("Este estrato corresponde a: Medio.\nUna característica de este estrato es que no\npuede recibir subsidios(como los más bajos)\nni tienen que pagar sobrecostos\n(como los más altos).")
 
+#Configuraciones de ventana de resultado para Estrato 5
 class Est5(QDialog):
     def __init__(self):
+
+        #Inicializa Ventana y sus configuraciones
         QDialog.__init__(self)
         self.ui = Ui_est()
         self.ui.setupUi(self)
@@ -285,8 +286,12 @@ class Est5(QDialog):
         self.ui.titulo.setText("Estrato 5")
         self.ui.titulo.setAlignment(Qt.AlignCenter)
         self.ui.descripcion.setText("Este estrato corresponde a: Medio-alto.\nA partir de este estrato se debe de pagar\nsobrecostos en los servicios públicos\ncomo contribución ya que suelen\ntener mayores recursos económicos.")
+
+#Configuraciones de ventana de resultado para Estrato 6
 class Est6(QDialog):
     def __init__(self):
+
+        #Inicializa Ventana y sus configuraciones
         QDialog.__init__(self)
         self.ui = Ui_est()
         self.ui.setupUi(self)
@@ -301,6 +306,7 @@ class Est6(QDialog):
         self.ui.titulo.setAlignment(Qt.AlignCenter)
         self.ui.descripcion.setText("Este estrato corresponde a: Alto. \nEs el estrato socioeconómico más alto. Poseen\nexcelentes condiciones tanto de vivienda\ncomo de entorno y también paga\nsobrecostos en los servicios públicos.")
 
+#Ventana para calcular la tasa de desempleo
 class Ventana2(QDialog):
     def __init__(self):
         QDialog.__init__(self)
@@ -362,6 +368,8 @@ class Ventana2(QDialog):
 
 class Ventana3(QDialog):
     def __init__(self):
+
+        #Inicializa Ventana y sus configuraciones
         QDialog.__init__(self)
         self.ui = Ui_densidad()
         self.ui.setupUi(self)
@@ -370,8 +378,9 @@ class Ventana3(QDialog):
 
         #Botones
         self.ui.cerrar.clicked.connect(self.close)
+        self.ui.enviar.clicked.connect(self.EnviarDatosDen)
 
-
+        #Estilos y configuraciones para las entradas de lineas de texto
         self.ui.Region.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
         self.ui.CuadroPob.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
         self.ui.CuadroSup.setStyleSheet("background-color:white; border:none; border-radius: 10px 10px")
@@ -381,10 +390,11 @@ class Ventana3(QDialog):
         self.ui.CuadroPob.setAlignment(Qt.AlignCenter)
         self.ui.CuadroSup.setAlignment(Qt.AlignCenter)
 
-        self.ui.enviar.clicked.connect(self.EnviarDatosDen)
 
+        #Funcion que procesa los datoa
     def EnviarDatosDen(self):
 
+        #Obtención de datos
         NombreTerritorio = self.ui.Region.text()
         PoblacionTotal= self.ui.CuadroPob.text()
         Superficie= self.ui.CuadroSup.text()
